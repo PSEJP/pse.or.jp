@@ -44,11 +44,9 @@ gulp.task('template', function () {
 
 gulp.task('watch', function () {
     livereload.listen();
-    gulp.watch('src/**/*', ['default', 'reload'])
+    gulp.watch('src/**/*', ['default'])
 });
 
-gulp.task('reload', function() {
+gulp.task('default', ['copy', 'compass', 'template'], function(){
     livereload.reload();
 });
-
-gulp.task('default', ['copy', 'compass', 'template']);
