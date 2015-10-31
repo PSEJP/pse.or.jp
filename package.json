@@ -17,9 +17,12 @@
   },
   "homepage": "http://www.pse.or.jp",
   "dependencies": {
-    "materialize-css": "^0.97.1"
+    "jquery": "^2.1.4",
+    "materialize-css": "^0.97.1",
+    "modernizr": "^3.2.0"
   },
   "devDependencies": {
+    "event-stream": "^3.3.2",
     "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
     "gulp-compile-handlebars": "^0.5.0",

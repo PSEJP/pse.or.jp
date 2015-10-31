@@ -1,3 +1,3 @@
 $(function() {
-    // index.js
+    // script.js
 });
