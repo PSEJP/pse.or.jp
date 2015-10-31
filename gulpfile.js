@@ -4,10 +4,17 @@ var uglify = require('gulp-uglify');
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 var gutil = require('gulp-util');
+var es = require('event-stream');
 
 gulp.task('copy', function () {
-    gulp.src('./node_modules/materialize-css/dist/**/*', {base: './node_modules/materialize-css/dist'})
-        .pipe(gulp.dest('./dist/'));
+    return es.concat(
+        gulp.src('./node_modules/materialize-css/dist/**/*', {base: './node_modules/materialize-css/dist'})
+            .pipe(gulp.dest('./dist/')),
+        gulp.src('./node_modules/jquery/dist/**/*', {base: './node_modules/jquery/dist'})
+            .pipe(gulp.dest('./dist/js')),
+        gulp.src('./src/js/**', {base: './src/js'})
+            .pipe(gulp.dest('./dist/app'))
+    );
 });
 
 gulp.task('compass', function () {
@@ -17,12 +24,6 @@ gulp.task('compass', function () {
             css: './dist/css',
             sass: './src/sass'
         }));
-});
-
-gulp.task('js', function () {
-    return gulp.src('lib/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('template', function () {
@@ -40,4 +41,4 @@ gulp.task('template', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['copy', 'compass', 'js', 'template']);
+gulp.task('default', ['copy', 'compass', 'template']);
