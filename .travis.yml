@@ -20,4 +20,3 @@ after_script:
 branches:
   only:
     - master
-    - feature/travis-deploy
