@@ -5,6 +5,7 @@ var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 var gutil = require('gulp-util');
 var es = require('event-stream');
+var livereload = require('gulp-livereload');
 
 gulp.task('copy', function () {
     return es.concat(
@@ -39,6 +40,15 @@ gulp.task('template', function () {
             path.extname = ".html";
         }))
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task('watch', function () {
+    livereload.listen();
+    gulp.watch('src/**/*', ['default', 'reload'])
+});
+
+gulp.task('reload', function() {
+    livereload.reload();
 });
 
 gulp.task('default', ['copy', 'compass', 'template']);
