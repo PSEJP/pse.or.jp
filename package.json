@@ -22,11 +22,11 @@
     "modernizr": "^3.2.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.9.12",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
     "gulp-compile-handlebars": "^0.5.0",
-    "gulp-livereload": "^3.8.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
